@@ -1,0 +1,15 @@
+;-----------------------------------------
+;START
+BSF STATUS, RP0;
+CLRF TRISB; SET B AS OUTPUT
+BCF STATUS, RP0;
+CLRF PORTB;
+CLRW;
+;-----------------------------------------
+;MAIN PROG
+MOVF PORTA,W;
+MOVWF PORTB;
+LOOP1
+ADDWF PORTA,W;
+MOVWF PORTB;
+GOTO LOOP1

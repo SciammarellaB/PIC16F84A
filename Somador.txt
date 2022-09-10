@@ -1,0 +1,28 @@
+;-----------------------------------------
+VAR1 EQU 0X00;
+VAR2 EQU 0X04;
+VAR3 EQU 0X08;
+;-----------------------------------------
+;START
+BSF STATUS, RP0;
+CLRF TRISB;
+BCF STATUS, RP0;
+CLRF VAR1;
+CLRF VAR2;
+CLRF VAR3;
+CLRF PORTB;
+CLRW;
+;-----------------------------------------
+;MAIN PROG
+MOVLW 0X05;
+MOVWF VAR1;
+MOVLW 0X0F;
+MOVWF VAR2;
+CLRW;
+ADDWF VAR1,W;
+ADDWF VAR2,W;
+MOVWF VAR3;
+CLRW;
+MOVF VAR3,W;
+MOVWF PORTB;
+SLEEP;

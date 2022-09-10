@@ -1,0 +1,19 @@
+;-----------------------------------------
+;INITIALIZE VARIABLES
+VAR1 EQU 0X00;
+;-----------------------------------------
+;START
+BSF STATUS, RP0; BANK 1
+CLRF TRISB; SET AS OUTPUT
+BCF STATUS, RP0; BANK 0
+CLRF VAR1;
+CLRF PORTB;
+CLRW;
+;-----------------------------------------
+;MAIN PROG
+LOOP1
+MOVF PORTA, W;
+MOVWF VAR1;
+MOVF VAR1, W;
+MOVWF PORTB;
+GOTO LOOP1;
